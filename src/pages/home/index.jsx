@@ -1,20 +1,23 @@
-import AppBar from "../../components/appBar";
-import { Typography, Box, Container, Grid } from "@mui/material";
+import AppBar from '../../components/appBar'
+import { Typography, Box, Container, Grid } from '@mui/material'
+import BasicTree from '../../components/folderTree'
+
 function Home() {
   return (
     <Container>
       <AppBar />
       <Box sx={{ flexGrow: 1, mt: 20 }}>
+        <BasicTree />
         <Typography
-          variant="h2"
-          style={{ textAlign: "center", marginBottom: 20 }}
+          variant='h2'
+          style={{ textAlign: 'center', marginBottom: 20 }}
         >
           Overwhelmed? We can help.
         </Typography>
         <Grid container>
           <Grid md={2}></Grid>
           <Grid md={8}>
-            <Typography variant="h6" style={{ textAlign: "center" }}>
+            <Typography variant='h6' style={{ textAlign: 'center' }}>
               Workflowy offers a simpler way to stay organized. If you have a
               crazy job or an ambitious project, we will be your trusty
               sidekick.
@@ -24,7 +27,7 @@ function Home() {
         </Grid>
       </Box>
     </Container>
-  );
+  )
 }
 
-export default Home;
+export default Home

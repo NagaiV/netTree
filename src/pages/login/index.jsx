@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import {
   Typography,
   Box,
@@ -27,7 +28,8 @@ const validationSchema = yup.object({
     .required('Password is required'),
 })
 
-function Home() {
+function Login() {
+  const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const formik = useFormik({
@@ -36,8 +38,9 @@ function Home() {
       password: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      dispatch(login(values))
+    onSubmit: async (values) => {
+      await dispatch(login(values))
+      navigate('/login')
     },
   })
 
@@ -127,4 +130,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Login

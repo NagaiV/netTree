@@ -1,4 +1,5 @@
 import AppBar from '../../components/appBar'
+import { useNavigate } from 'react-router-dom'
 import {
   Typography,
   Box,
@@ -29,7 +30,9 @@ const validationSchema = yup.object({
   lastName: yup.string('Enter your last name').required(),
 })
 
-function Home() {
+function Register() {
+  const navigate = useNavigate()
+
   const dispatch = useDispatch()
 
   const formik = useFormik({
@@ -40,9 +43,9 @@ function Home() {
       lastName: '',
     },
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      dispatch(register(values))
-      ;<snackbar />
+    onSubmit: async (values) => {
+      await dispatch(register(values))
+      navigate('/login')
     },
   })
 
@@ -163,4 +166,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Register
